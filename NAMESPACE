@@ -3,7 +3,8 @@ useDynLib("HDtweedie")
 export(HDtweedie,
 cv.HDtweedie,
 predict.HDtweedie,
-coef.HDtweedie)
+coef.HDtweedie,
+caret.HDtweedie)
 
 S3method("print","HDtweedie")
 S3method("coef","HDtweedie")
