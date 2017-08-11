@@ -76,6 +76,8 @@ caret.HDtweedie$predict <- function (modelFit, newdata, submodels = NULL)
   if (!is.null(submodels)) {
       tmp <- as.list(as.data.frame(predict(modelFit, newdata, 
                                            s = submodels$lambda)))
+  } else {
+      tmp <- list()
   }
   c(list(out), tmp)
 }
