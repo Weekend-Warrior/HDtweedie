@@ -27,7 +27,7 @@ cv.HDtweedie <- function(x, y, group=NULL, p, weights, lambda = NULL, pred.loss 
     cvsd <- cvstuff$cvsd
     cvname <- cvstuff$name
     out <- list(lambda = lambda, cvm = cvm, cvsd = cvsd, cvupper = cvm + cvsd, 
-        cvlo = cvm - cvsd, name = cvname, HDtweedie.fit = tweediegrpnet.object)
+        cvlo = cvm - cvsd, cvpreds = cvstuff$cvpreds, name = cvname, HDtweedie.fit = tweediegrpnet.object)
     lamin <- getmin(lambda, cvm, cvsd)
     obj <- c(out, as.list(lamin))
     class(obj) <- "cv.HDtweedie"
@@ -61,7 +61,7 @@ cv.tweediegrppath <- function(outlist, lambda, x, y, p, weights, foldid, pred.lo
 	N <- cvob$N
 	cvm <- apply(cvraw, 2, weighted.mean, w=weights, na.rm=TRUE)
 	cvsd <- sqrt(apply(scale(cvraw, cvm, scale=FALSE)^2, 2, weighted.mean, w=weights, na.rm=TRUE)/(N-1))
-	list(cvm=cvm, cvsd=cvsd, name=typenames[pred.loss])
+	list(cvm=cvm, cvsd=cvsd, name=typenames[pred.loss], cvpreds=predmat)
 }
 
 
