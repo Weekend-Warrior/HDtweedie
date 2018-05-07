@@ -1,4 +1,4 @@
-HDtweedie <- function(x, y, group = NULL, p = 1.50, weights = rep(1,nobs), alpha = 1, nlambda = 100, lambda.factor = ifelse(nobs < nvars, 0.05, 0.001), 
+HDtweedie <- function(x, y, group = NULL, p = 1.50, weights = rep(1,nobs), alpha = 1, nlambda = 10, lambda.factor = ifelse(nobs < nvars, 0.05, 0.001), 
     lambda = NULL, pf = sqrt(bs), dfmax = as.integer(max(group)) + 
         1, pmax = min(dfmax * 1.2, as.integer(max(group))), standardize = FALSE, eps = 1e-08, maxit = 3e+08) {
     #################################################################################
